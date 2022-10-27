@@ -36,7 +36,7 @@ const Header = () => {
     const [isClickMobileSidebar,setIsClickMobileSidebar] = useState(false)
 
     useEffect(() => {
-        if(location.pathname === '/' || location.pathname === '/store')
+        if(location.pathname === '/' || location.pathname === '/store/'|| location.pathname === '/store')
             setIsTransparent(true)
         else setIsTransparent(false)
     },[location])
