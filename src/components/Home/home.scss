@@ -1,0 +1,115 @@
+@use '../../responsive.scss' as *;
+.home{
+    .panel{
+        color: var(--clr-white);
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../img/main.jpeg) center/cover;
+        .panelContent{
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            color: #fff;
+
+            .panelHeader{
+                @include mobile{
+                    line-height: 56px;
+                    font-size: 48px;
+                }
+                font-size: 84px;
+                font-weight: 700;
+                line-height: 84px;
+                font-family: 'Kaushan Script', cursive;
+            }
+
+            .panelSlogan{
+                margin: 16px 0 32px 0;
+                font-size: 44px;
+                @include mobile{
+                    letter-spacing: 2px;
+                    font-size: 24px;
+                }
+                font-weight:400;
+            }
+
+            .panelBtn{
+                padding: 8px 12px;
+                margin-top: 12px;
+                border: 1px solid #fff;
+                outline: none;
+                border-radius: 4px;
+                transition: .2s;
+                text-align: center;
+                background-color: transparent;
+                letter-spacing: 2px;
+                font-size: 16px;
+                color: #fff;
+                
+                @include mobile{
+                    font-size: 14px;
+                }
+                cursor: pointer;
+                text-decoration: none;
+
+                &:hover{
+                    background-color: #fff;
+                    color: hsl(21, 62%, 45%);
+                }
+            }
+        }
+    }
+
+    .homeContent{
+        width: 90%;
+        margin-top: 80px;
+        margin-right: auto;
+        padding-bottom: 120px;
+        margin-left: auto;
+
+        .homeContentHeader{
+            font-size: 40px;
+            text-align: center;
+            color: #000;
+            font-weight: 500;
+            span{
+                color: hsl(21, 62%, 45%);
+                margin-right: 16px;
+            }
+        }
+
+        .homeContentProducts{
+            display: flex;
+            flex-wrap: wrap;
+            margin: 48px 0;
+            
+        }
+
+        .homeContentBtn{
+            display: flex;
+            justify-content: center;
+            .homeContentBtnItem{
+                border-radius: 4px;
+                background-color: hsl(21, 62%, 45%);
+                color: #fff;
+                transition: .2s;
+                padding: 6px 12px;
+                font-size: 16px;
+                letter-spacing: 1px;
+                margin-left: auto;
+                margin-right: auto;
+                outline: none;
+                border: none;
+                text-decoration: none;
+                text-align: center;
+    
+    
+                &:hover{
+                    background-color: hsl(21, 65%, 59%);
+                    color: #000;
+                }
+            }
+        }
+    }
+}

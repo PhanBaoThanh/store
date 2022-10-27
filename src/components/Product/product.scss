@@ -1,0 +1,106 @@
+@use '../../responsive.scss' as *;
+.containerProduct{ 
+    margin-top: 96px;
+
+    .containerProductHeader{
+        padding: 0 5vw;
+        min-height: 20vh;
+        text-transform: capitalize;
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        font-size: 28px;
+        letter-spacing: 2px;
+        color: hsl(210, 22%, 49%);
+    }
+
+    .content{
+        width: 100%;
+        min-height: calc(100vh - 20vh - 96px);
+        display: flex;
+        padding: 5vw;
+        background-color: #fff;
+        @include mobile{
+            flex-direction: column;
+        }
+        .img{
+            width: 45%;
+            margin-right: 5%;
+            @include mobile{
+                width: 100%;
+            }
+            img{
+                height: 400px;
+                width: 100%;
+                border-radius: 4px;
+                object-fit: cover;
+            }
+        }
+
+        .text{
+            @include mobile{
+                width: 100%;
+            }
+            width: 50%;
+
+            .headerText{
+                font-size: 32px;
+                font-weight: 400;
+                text-align: left;
+                letter-spacing: 2px;
+                margin-bottom: 8px;
+            }
+
+            .type{
+                margin-bottom: 8px;
+                color: #64748b;
+                font-size: 20px;
+            }
+
+            .cost{
+                margin-bottom: 8px;
+            }
+
+            .colors{
+                display: flex;
+                .color{
+                    border-radius: 50%;
+                    width: 16px;
+                    height: 16px;
+                    margin-right: 8px;
+                    margin-bottom: 8px;
+                }
+            }
+
+            .description{
+                font-size: 16px;
+                line-height: 1.8;
+                letter-spacing: .5;
+                margin-bottom: 16px;
+                color: hsl(210, 22%, 49%);
+            }
+
+            .textBtn{
+                display: inline-block;
+                padding: 8px 16px;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                background-color: hsl(21, 62%, 45%);;
+                box-shadow:  0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+                color: #fff;
+                transition: .2s;
+                border-radius: 4px;
+                text-decoration: none;
+                cursor: pointer;
+                outline: none;
+                border: none;
+
+                &:hover{
+                    color: #000;
+                    background-color: hsl(21, 65%, 59%);;
+                    box-shadow:  0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+                }
+            }
+        }
+    }
+}

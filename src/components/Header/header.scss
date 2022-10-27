@@ -1,0 +1,314 @@
+@use '../../responsive.scss' as *;
+.header{
+    height: 96px;
+    @include mobile{
+        height: 86px;
+    }
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 0 5vw;
+
+    &.transparent{
+        background-color: transparent;
+    }
+
+    .sidebarBtn{
+        background-color:  hsl(21, 62%, 45%);
+        padding: 8px 20px;
+        color: #fff;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 21px;
+        font-weight: 700;
+        outline: none;
+        border: none;
+        display: none;
+        @include mobile{
+            display: block;
+        }
+    }
+
+    .header__nav{
+        @include mobile{
+            display: none;
+        }
+        .header__nav__item{
+            margin-right: 36px;
+            font-size: 22px;
+            letter-spacing: 1px;
+            color: #000;
+            text-decoration: none;
+            padding: 8px;
+        }
+    }
+
+    .logo{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+
+    .cart{
+        font-size: 28px;
+        color: #102a42;
+        font-weight: 900;
+        padding: 8px;
+        cursor: pointer;
+        z-index: 1;
+        position: relative;
+
+        .cartNumber{
+            width: 26px;
+            height: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            border-radius: 50%;
+            background-color: hsl(21, 62%, 45%);
+            z-index: 10;
+            color: #fff;
+            font-size: 16px;
+            position: absolute;
+            text-align: center;
+            right: 0;
+            top: 0;
+        }
+    }
+}
+
+.modal{
+    z-index: -1;
+    position: fixed;
+    inset: 0 0 0 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: .3s;
+
+    &.active{
+        z-index: 100;
+        opacity: 1;
+    }
+
+
+
+    .cartModal{
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 35vw;
+        @include mobile{
+            width: 100vw;
+        }
+        max-width: 450px;
+        background-color: hsl(210, 36%, 96%);
+        z-index: -1;
+        transform: translateX(100%);
+        transition: .3s;
+        padding: 48px 16px 16px 16px;
+        display: flex;
+        flex-direction: column;
+
+        &.open{
+            z-index: 1000;
+            transform: translateX(0);
+        }
+
+        .cartModalHeader{
+            font-weight: 500;
+            text-align: center;
+            font-family: 'Kaushan Script', cursive;
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .cartModalItems{
+            flex: 1;
+            overflow-y: scroll;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            .cartModalItem{
+                margin: 16px 0;
+                display: flex;
+                align-items: center;
+
+                .cartModalItemImg{
+                    display: flex;
+                    height: 100%;
+                    align-items: center;
+                    img{
+                        border-radius: 4px;
+                        width: 75px;
+                        height: 50px;
+                        object-fit: cover;
+                    }
+                    margin-right: 24px;
+                }
+
+                .cartModalItemContent{
+                    display: flex;
+                    flex: 1;
+                    justify-content: space-between;
+
+                    .cartModalItemContentText{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+
+                        p{
+                            line-height: 18px;
+                            font-size: 16px;
+                            span{
+                                font-size: 12px;
+                                color: hsl(209, 34%, 30%);
+                            }
+                        }
+
+                        .cartBtnRemove{
+                            text-align: left;
+                            border: none;
+                            outline: none;
+                            color: hsl(210, 22%, 49%);
+                            cursor: pointer;
+                            letter-spacing: 1px;
+                            background-color: hsl(210, 36%, 96%);
+                        }
+                    }
+
+                    .cartModalItemContentBtns{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: space-between;
+                        .cartModalItemContentBtn{
+                            font-size: 12px;
+                            color: hsl(21, 62%, 45%);
+                            cursor: pointer;
+                            outline: none;
+                            border: none;
+                            padding: 2px;
+                            background-color: hsl(210, 36%, 96%);
+                        }
+                    }
+                }
+            }
+        }
+
+        .cartModalTotal{
+            font-weight: 500;
+            text-align: center;
+            font-family: 'Kaushan Script', cursive;
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .totalBtn{
+            width: 75%;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 4px;
+            padding: 8px 0;
+            outline: none;
+            border: none;
+            text-align: center;
+            color: #fff;
+            font-size: 14px;
+            background-color: hsl(21, 62%, 45%);
+            transition: .2s;
+            cursor: pointer;
+            margin-bottom: 48px;
+
+            &:hover{
+                background-color: hsl(21, 65%, 59%);
+                color: #000;
+            }
+        }
+
+        .closeBtn{
+            color: hsl(210, 22%, 49%);
+            font-size: 30px;
+            position: absolute;
+            top: 6px;
+            left: 10px;
+            padding: 8px;
+            cursor: pointer;
+            outline: none;
+            border: none;
+            font-weight: 800;
+            background-color: hsl(210, 36%, 96%);
+        }
+    }
+}
+
+.modalMobile{
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    inset: 0 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
+    opacity: 0;
+    transition: .2s;
+
+    &.visible{
+        opacity: 1;
+        z-index: 100;
+    }
+
+    .modalMobileContent{
+        padding: 64px;
+        width: 92vw;
+        position: relative;
+        height: 95vh;
+        border-radius: 4px;
+        background-color: #fff;
+
+        .closeModalMobileBtn{
+            color: hsl(210, 22%, 49%);
+            font-size: 30px;
+            position: absolute;
+            top: 6px;
+            right: 10px;
+            padding: 8px;
+            cursor: pointer;
+            outline: none;
+            border: none;
+            font-weight: 800;
+            background-color: #fff;
+        }
+
+        .modalMobileNav{
+            display: flex;
+            flex-direction: column;
+
+            .modalMobileNavItem{
+                display: flex;
+                text-decoration: none;
+                padding:8px;
+                align-items: center;
+                font-size: 24px;
+                color: hsl(210, 22%, 49%);
+                i{
+                    margin-right: 12px;
+                }
+                p{
+                    color: #000;
+                }
+            }
+        }
+    }
+}
